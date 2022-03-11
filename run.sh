@@ -1,1 +1,0 @@
-docker run -it --rm -v $(pwd):/home/asm/asm -w /home/asm/asm assembly_enviroment/asm /bin/bash
