@@ -1,8 +1,10 @@
-FROM alpine
+FROM ubuntu:latest
 
-RUN apk update && \
-    apk add vim bash nasm gcc clang gdb valgrind git make perl man-pages less tree tmux && \
-    rm -rf /var/cache/apk/*
-COPY src/ /root/
+RUN apt-get update && apt-get install -y nasm build-essential
 
-CMD ["/bin/bash"]
+COPY hello.asm /hello.asm
+
+RUN nasm -f elf64 -o hello.o hello.asm && \
+    ld -s -o hello hello.o
+
+CMD ["./hello"]
