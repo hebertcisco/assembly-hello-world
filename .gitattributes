@@ -1,0 +1,9 @@
+* text=auto
+*.md linguist-vendored
+*.js linguist-vendored
+*.env.example linguist-vendored
+*.cmake linguist-vendored
+*CMakeLists.txt linguist-vendored
+
+*Dockerfile linguist-language=asm
+*dockerfile linguist-language=asm
