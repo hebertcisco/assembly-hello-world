@@ -76,4 +76,31 @@ To prepare the Docker environment, follow these steps:
 
     This will create an image named `hello-assembly` from the Dockerfile.
 
-You now have a Docker environment set up with an image that contains NASM installed and your assembly code. You can run the code
+You now have a Docker environment set up with an image that contains NASM installed and your assembly code. You can run assembly code inside the Docker container using additional Docker commands like `docker run` to test and run your "Hello, World!" program.
+
+## Create a Makefile with the commands to facilitate the build
+Create a Makefile file with commands to facilitate building, publishing and running the container image. The file defines a NAME variable with the name of the image and three rules: build, pub and run. The build rule uses the docker build command to build the image from the Dockerfile. The pub rule uses the docker push command to publish the image to a remote repository. The run rule uses the docker run command to run the container in interactive mode and remove the container after running.
+
+```Makefile
+NAME := assembly_environment
+
+build:
+docker build -t $(NAME) .
+
+pub: build
+docker push $(NAME)
+
+run:
+docker run -it --rm $(NAME)
+```
+
+Run the make run command to build the container image, if necessary, and run the container. The expected result is the impression of "Hello, World!" on the screen.
+
+```bash
+$ make run
+Hello World!
+```
+
+## Conclusion
+
+In this post, we learned how to create a simple "Hello, World!" on screen and how to run it in a Docker container. Leave your comment below. To the next!
