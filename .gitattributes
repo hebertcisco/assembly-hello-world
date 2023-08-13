@@ -4,6 +4,8 @@
 *.env.example linguist-vendored
 *.cmake linguist-vendored
 *CMakeLists.txt linguist-vendored
+*makefile linguist-vendored
+*Makefile linguist-vendored
 
 *Dockerfile linguist-language=asm
 *dockerfile linguist-language=asm
